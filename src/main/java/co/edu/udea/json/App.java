@@ -8,35 +8,27 @@ public class App
 {
     public static int IDENT_FACTOR = 4;
     public static String XML_STRING =
-        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"            +
-            " <menu_desayuno>\n"                                  +
-            " <opcion>\n"                                         +
-            " <nombre>PanCakes</nombre>\n"                        +
-            " <valor>$2.95</valor>\n"                             +
-            " <descripcion>\n"                                    +
-            " Lithuanian Pancake Recipe - Blynai or Sklindziai\n" +
-            " </descripcion>\n"                                   +
-            " <kcal>500</kcal>\n"                                 +
-            " </opcion>\n"                                        +
-            " <opcion>\n"                                         +
-            " <nombre>Belgian Waffles</nombre>\n"                 +
-            " <valor>$5.95</valor>\n"                             +
-            " <descripcion>\n"                                    +
-            " Two of our famous Belgian Waffles with plenty of"   + 
-            " real maple syrup\n"                                 +
-            " </descripcion>\n"                                   +
-            " <kcal>650</kcal>\n"                                 +
-            " </opcion>\n"                                        +
-            " <opcion>\n"                                         +
-            " <nombre>Strawberry Belgian Waffles</nombre>\n"      +
-            " <valor>$7.95</valor>\n"                             +
-            " <descripcion>\n"                                    +
-            " Light Belgian waffles covered with strawberries"    +
-            " and whipped cream\n"                                +
-            " </descripcion>\n"                                   +
-            " <kcal>900</kcal>\n"                                 +
-            " </opcion>\n"                                        +
-            " </menu_desayuno>";
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+            " <flights>\n"                             +
+            " <flight>\n"                              +
+            " <from>Barranquilla</from>\n"             +
+            " <to>Medellin</to>\n"                     +
+            " <fare>$175.000j</fare>\n"                +
+            " <aircraft>Boeing 777</aircraft>\n"       +
+            " </flight>\n"                             +
+            " <flight>\n"                              +
+            " <from>Bogota</from>\n"                   +
+            " <to>Cartagena</to>\n"                    +
+            " <fare>$198.000j</fare>\n"                +
+            " <aircraft>Boeing 747</aircraft>\n"       +
+            " </flight>\n"                             +
+            " <flight>\n"                              +
+            " <from>Medellin</from>\n"                 +
+            " <to>Bogota</to>\n"                       +
+            " <fare>$150.000j</fare>\n"                +
+            " <aircraft>Airbus</aircraft>\n"           +
+            " </flight>\n"                             +
+            " </flights>";
 
     public static void main(String[] args) {
         try {
