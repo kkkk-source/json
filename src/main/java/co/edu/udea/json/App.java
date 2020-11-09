@@ -17,6 +17,18 @@ public class App
             .edad(10)
             .build();
 
+        Vendedor v2 = Vendedor.builder()
+            .nombre("Jumbo")
+            .apellido("Sas")
+            .edad(50)
+            .build();
+
+        Vendedor v3 = Vendedor.builder()
+            .nombre("Tilda")
+            .apellido("mol")
+            .edad(21)
+            .build();
+
         Cliente c1 = Cliente.builder()
             .nombre("HIVYMAR")
             .direccion("Victor Emilio Estrada 204")
@@ -29,27 +41,53 @@ public class App
             .telefono("5013604")
             .build();
 
-        List<Cliente> clientes = new ArrayList<Cliente>();
-        clientes.add(c1);
-        clientes.add(c2);
+        Cliente c3 = Cliente.builder()
+            .nombre("Pepito")
+            .direccion("Cll. Colombia")
+            .telefono("2723454")
+            .build();
 
-        JSONObject objVendedor = new JSONObject(v1);
-        JSONArray objClientes = new JSONArray();
+        Cliente c4 = Cliente.builder()
+            .nombre("Julano")
+            .direccion("Av 33")
+            .telefono("5093304")
+            .build();
+
+        Cliente c5 = Cliente.builder()
+            .nombre("Elijah")
+            .direccion("thatpart")
+            .telefono("3013509")
+            .build();
+
+        List<Cliente> clientes1 = new ArrayList<Cliente>();
+        clientes1.add(c1);
+        clientes1.add(c2);
+        clientes1.add(c3);
+        clientes1.add(c4);
+
+        List<Cliente> clientes2 = new ArrayList<Cliente>();
+        clientes2.add(c1);
+        clientes2.add(c2);
+        clientes2.add(c3);
+        clientes2.add(c4);
+        clientes2.add(c5);
+
+        v1.setClientes(clientes1);
+        v2.setClientes(clientes2);
+
+        List<Vendedor> vendedores = new ArrayList<Vendedor>();
+        vendedores.add(v1);
+        vendedores.add(v2);
+
         try {
-            for (Cliente cliente : clientes) {
-                JSONObject objCliente = new JSONObject();
-                objCliente.put("nombre", cliente.getNombre());
-                objCliente.put("direccion", cliente.getDireccion());
-                objCliente.put("telefono", cliente.getTelefono());
-                objClientes.put(objCliente);
+            JSONArray objVendedores = new JSONArray();
+            for (Vendedor vendedor : vendedores) {
+                JSONObject objVendedor = new JSONObject(vendedor);
+                objVendedores.put(objVendedor);
             }
-            JSONObject objVendedorClientes = new JSONObject();
-            objVendedorClientes.put("vendedor", objVendedor);
-            objVendedorClientes.put("clientes", objClientes);
-            System.out.println(objVendedorClientes.toString(IDENT_FACTOR));
+            System.out.println(objVendedores.toString(IDENT_FACTOR));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
