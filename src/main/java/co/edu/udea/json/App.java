@@ -1,93 +1,50 @@
 package co.edu.udea.json;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 public class App 
 {
     public static int IDENT_FACTOR = 4;
+    public static String XML_STRING =
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"            +
+            " <menu_desayuno>\n"                                  +
+            " <opcion>\n"                                         +
+            " <nombre>PanCakes</nombre>\n"                        +
+            " <valor>$2.95</valor>\n"                             +
+            " <descripcion>\n"                                    +
+            " Lithuanian Pancake Recipe - Blynai or Sklindziai\n" +
+            " </descripcion>\n"                                   +
+            " <kcal>500</kcal>\n"                                 +
+            " </opcion>\n"                                        +
+            " <opcion>\n"                                         +
+            " <nombre>Belgian Waffles</nombre>\n"                 +
+            " <valor>$5.95</valor>\n"                             +
+            " <descripcion>\n"                                    +
+            " Two of our famous Belgian Waffles with plenty of"   + 
+            " real maple syrup\n"                                 +
+            " </descripcion>\n"                                   +
+            " <kcal>650</kcal>\n"                                 +
+            " </opcion>\n"                                        +
+            " <opcion>\n"                                         +
+            " <nombre>Strawberry Belgian Waffles</nombre>\n"      +
+            " <valor>$7.95</valor>\n"                             +
+            " <descripcion>\n"                                    +
+            " Light Belgian waffles covered with strawberries"    +
+            " and whipped cream\n"                                +
+            " </descripcion>\n"                                   +
+            " <kcal>900</kcal>\n"                                 +
+            " </opcion>\n"                                        +
+            " </menu_desayuno>";
 
     public static void main(String[] args) {
-        Vendedor v1 = Vendedor.builder()
-            .nombre("Juan")
-            .apellido("Perez")
-            .edad(10)
-            .build();
-
-        Vendedor v2 = Vendedor.builder()
-            .nombre("Jumbo")
-            .apellido("Sas")
-            .edad(50)
-            .build();
-
-        Vendedor v3 = Vendedor.builder()
-            .nombre("Tilda")
-            .apellido("mol")
-            .edad(21)
-            .build();
-
-        Cliente c1 = Cliente.builder()
-            .nombre("HIVYMAR")
-            .direccion("Victor Emilio Estrada 204")
-            .telefono("5020800")
-            .build();
-
-        Cliente c2 = Cliente.builder()
-            .nombre("PROMESA")
-            .direccion("Via. Daule KM 5.5")
-            .telefono("5013604")
-            .build();
-
-        Cliente c3 = Cliente.builder()
-            .nombre("Pepito")
-            .direccion("Cll. Colombia")
-            .telefono("2723454")
-            .build();
-
-        Cliente c4 = Cliente.builder()
-            .nombre("Julano")
-            .direccion("Av 33")
-            .telefono("5093304")
-            .build();
-
-        Cliente c5 = Cliente.builder()
-            .nombre("Elijah")
-            .direccion("thatpart")
-            .telefono("3013509")
-            .build();
-
-        List<Cliente> clientes1 = new ArrayList<Cliente>();
-        clientes1.add(c1);
-        clientes1.add(c2);
-        clientes1.add(c3);
-        clientes1.add(c4);
-
-        List<Cliente> clientes2 = new ArrayList<Cliente>();
-        clientes2.add(c1);
-        clientes2.add(c2);
-        clientes2.add(c3);
-        clientes2.add(c4);
-        clientes2.add(c5);
-
-        v1.setClientes(clientes1);
-        v2.setClientes(clientes2);
-
-        List<Vendedor> vendedores = new ArrayList<Vendedor>();
-        vendedores.add(v1);
-        vendedores.add(v2);
-
         try {
-            JSONArray objVendedores = new JSONArray();
-            for (Vendedor vendedor : vendedores) {
-                JSONObject objVendedor = new JSONObject(vendedor);
-                objVendedores.put(objVendedor);
-            }
-            System.out.println(objVendedores.toString(IDENT_FACTOR));
-        } catch (Exception e) {
-            e.printStackTrace();
+            JSONObject jsonFromXML = XML.toJSONObject(XML_STRING);
+            String jsonOut = jsonFromXML.toString(IDENT_FACTOR);
+            System.out.print(jsonOut);
+        } catch (JSONException e) {
+            System.out.print(e.toString());
         }
     }
 }
